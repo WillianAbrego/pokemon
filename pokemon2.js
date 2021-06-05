@@ -101,9 +101,13 @@ function createPokemonCard(pokemon) {
 $(document).on("click", "button.btn", function (e) {
   // e.preventDefault();
   let codigo = $(this).closest(".bg-white")[0].childNodes[2].firstChild.data;
+  let img = $(this).closest(".bg-white")[0].firstChild.currentSrc;
+  let htmlimg = `<img src="${img}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">`;
   console.log(codigo);
+  console.log(img);
   // var title = $("h5").append[0];
-  $(".modal-title").html(codigo);
+  $(".modal-header").html(codigo);
+  $(".modal-body").html(htmlimg);
   // console.log(title);
 });
 //document.getElementsByClassName("bg-white")[0].childNodes[2].innerText
