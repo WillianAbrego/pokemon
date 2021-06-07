@@ -1,5 +1,5 @@
 let fetchPokemon = async () => {
-  for (let i = 1; i < 25; ++i) {
+  for (let i = 1; i < 36; ++i) {
     await getPokemon(i);
   }
 };
@@ -10,9 +10,7 @@ let getPokemon = async (id) => {
   let pokemon = await res.json();
   createPokemonCard(pokemon);
 };
-
 fetchPokemon();
-
 function createPokemonCard(pokemon) {
   //creating each HTML element
   const poke_types = pokemon.types.map((type) => type.type.name);
@@ -113,11 +111,12 @@ $(document).on("click", "button.btn", function (e) {
 //document.getElementsByClassName("bg-white")[0].childNodes[2].innerText
 
 $("#pagination-demo").twbsPagination({
-  totalPages: 16,
-  visiblePages: 6,
+  totalPages: 3,
+  visiblePages: 3,
   next: "Next",
   prev: "Prev",
   onPageClick: function (event, page) {
+    //  fetchPokemon();
     //fetch content and render here
     $("#page-content").text("Page " + page) + " content here";
   },
