@@ -1,5 +1,7 @@
+let principal = document.getElementById("principal");
+let numero = 12;
 let fetchPokemon = async () => {
-  for (let i = 1; i < 36; ++i) {
+  for (let i = 1; i < numero; ++i) {
     await getPokemon(i);
   }
 };
@@ -111,12 +113,17 @@ $(document).on("click", "button.btn", function (e) {
 //document.getElementsByClassName("bg-white")[0].childNodes[2].innerText
 
 $("#pagination-demo").twbsPagination({
-  totalPages: 3,
-  visiblePages: 3,
+  totalPages: 4,
+  visiblePages: 4,
   next: "Next",
   prev: "Prev",
   onPageClick: function (event, page) {
-    //  fetchPokemon();
+    if (page == 2) {
+      numero += 12;
+      document.getElementById("div1").innerHTML = "";
+      fetchPokemon();
+    }
+    console.log(page);
     //fetch content and render here
     $("#page-content").text("Page " + page) + " content here";
   },
