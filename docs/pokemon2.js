@@ -1,7 +1,5 @@
-let principal = document.getElementById("principal");
-let numero = 12;
-let fetchPokemon = async () => {
-  for (let i = 1; i < numero; ++i) {
+let fetchPokemon = async (incial, final) => {
+  for (let i = incial; i < final; ++i) {
     await getPokemon(i);
   }
 };
@@ -113,15 +111,30 @@ $(document).on("click", "button.btn", function (e) {
 //document.getElementsByClassName("bg-white")[0].childNodes[2].innerText
 
 $("#pagination-demo").twbsPagination({
-  totalPages: 4,
-  visiblePages: 4,
+  totalPages: 6,
+  visiblePages: 6,
   next: "Next",
   prev: "Prev",
   onPageClick: function (event, page) {
-    if (page == 2) {
-      numero += 12;
+    if (page == 1) {
       document.getElementById("div1").innerHTML = "";
-      fetchPokemon();
+
+      fetchPokemon((a = 1), (b = 29));
+    } else if (page == 2) {
+      fetchPokemon((a = 30), (b = 58));
+      document.getElementById("div1").innerHTML = "";
+    } else if (page == 3) {
+      fetchPokemon((a = 59), (b = 87));
+      document.getElementById("div1").innerHTML = "";
+    } else if (page == 4) {
+      fetchPokemon((a = 88), (b = 116));
+      document.getElementById("div1").innerHTML = "";
+    } else if (page == 5) {
+      fetchPokemon((a = 117), (b = 145));
+      document.getElementById("div1").innerHTML = "";
+    } else {
+      fetchPokemon((a = 146), (b = 151));
+      document.getElementById("div1").innerHTML = "";
     }
     console.log(page);
     //fetch content and render here
