@@ -17,6 +17,7 @@ function createPokemonCard(pokemon) {
 
   let name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
   imagen = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
+  imagenback = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemon.id}.png`;
   const poke_abilities = pokemon.abilities.map(
     (ability) => ability.ability.name
   );
@@ -27,7 +28,7 @@ function createPokemonCard(pokemon) {
       "div1"
     ).innerHTML += `<div class="d-flex align-content-end flex-wrap contenido">
     <div class="bg-white rounded shadow-sm py-5 px-4"><img src="${imagen}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-    <div class="hidden">${poke_abilities[0]} / ${poke_abilities[1]}</div>
+    <div class="hidden">${poke_abilities[0]} / ${poke_abilities[1]}<img src="${imagenback}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"> </div>
     <h5 class="mb-0" >${name}</h5><span class="small text-capitalize text-muted">${poke_types[0]}</span>
         <button type="button" class="btn  btn-info btn-sm" data-toggle="modal" data-target="#myModal" id="botonmodal">
         Informacion
@@ -63,7 +64,7 @@ function createPokemonCard(pokemon) {
       "div1"
     ).innerHTML += `<div class="d-flex align-content-end flex-wrap contenido">
     <div class="bg-white rounded shadow-sm py-5 px-4 contcard" ><img src="${imagen}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-    <div class="hidden">${poke_abilities[0]}/${poke_abilities[1]}</div>
+    <div class="hidden">${poke_abilities[0]}/${poke_abilities[1]}<img src="${imagenback}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"></div>
     <h5 class="mb-0 nombrepokemon" title="f">${name}</h5><span class="small text-capitalize text-muted">${poke_types[0]} /${poke_types[1]} </span>
       <button type="button" title="tituli"class="btn  btn-info btn-sm" data-toggle="modal" data-target="#myModal" id="botonmodal">
         Información
@@ -110,16 +111,18 @@ $(document).on("click", "button.btn", function (e) {
     $(this).closest(".bg-white")[0].childNodes[4].childNodes[0].nodeValue;
   let co = $(this).closest(".bg-white")[0];
   let img = $(this).closest(".bg-white")[0].firstChild.currentSrc;
+  let imgback =
+    $(this).closest(".bg-white")[0].childNodes[2].childNodes[1].currentSrc;
   let hidden =
     $(this).closest(".bg-white")[0].childNodes[2].childNodes[0].nodeValue;
-  let htmlimg = `<img src="${img}" alt="" width="100" class="img-fluid rounded-circle mb-2 img-thumbnail shadow-sm"><img src="${img}" alt="" width="100" class="img-fluid rounded-circle mb-2 img-thumbnail shadow-sm">  <div class="descriptions"> <br>Ability:<br> <spam>${hidden}</spam> </div> `;
+  let htmlimg = `<img src="${img}" alt="" width="100" class="imginterna rounded-circle mb-2 img-thumbnail shadow-sm"><img src="${imgback}" alt="" width="100" class="imginterna rounded-circle mb-2 img-thumbnail shadow-sm">  <div class="descriptions"> <br>Ability:<br> <spam>${hidden}</spam> </div> `;
   // console.log(codigo);
   // console.log(img);
   // var title = $("h5").append[0];
   $(".modal-header").html(codigo);
   $(".modal-body").html(htmlimg);
   // console.log(title);
-  console.log(co);
+  console.log(imgback);
 });
 //document.getElementsByClassName("bg-white")[0].childNodes[2].innerText
 const cleandiv = () => {
