@@ -17,6 +17,11 @@ function createPokemonCard(pokemon) {
 
   let name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
   imagen = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
+  const poke_abilities = pokemon.abilities.map(
+    (ability) => ability.ability.name
+  );
+  console.log(poke_abilities);
+  //console.log(pokemon.abilities);
   if (poke_types[1] == undefined) {
     document.getElementById(
       "div1"
@@ -96,6 +101,7 @@ function createPokemonCard(pokemon) {
 //   // content.html($(this).html());
 //   // $(".modal fade").modal({ show: true });
 // });
+
 $(document).on("click", "button.btn", function (e) {
   // e.preventDefault();
   let codigo = $(this).closest(".bg-white")[0].childNodes[2].firstChild.data;
@@ -109,7 +115,9 @@ $(document).on("click", "button.btn", function (e) {
   // console.log(title);
 });
 //document.getElementsByClassName("bg-white")[0].childNodes[2].innerText
-
+const cleandiv = () => {
+  document.getElementById("div1").innerHTML = "";
+};
 $("#pagination-demo").twbsPagination({
   totalPages: 6,
   visiblePages: 6,
@@ -117,24 +125,24 @@ $("#pagination-demo").twbsPagination({
   prev: "Prev",
   onPageClick: function (event, page) {
     if (page == 1) {
-      document.getElementById("div1").innerHTML = "";
+      cleandiv();
 
       fetchPokemon((a = 1), (b = 29));
     } else if (page == 2) {
       fetchPokemon((a = 30), (b = 58));
-      document.getElementById("div1").innerHTML = "";
+      cleandiv();
     } else if (page == 3) {
       fetchPokemon((a = 59), (b = 87));
-      document.getElementById("div1").innerHTML = "";
+      cleandiv();
     } else if (page == 4) {
       fetchPokemon((a = 88), (b = 116));
-      document.getElementById("div1").innerHTML = "";
+      cleandiv();
     } else if (page == 5) {
       fetchPokemon((a = 117), (b = 145));
-      document.getElementById("div1").innerHTML = "";
+      cleandiv();
     } else {
       fetchPokemon((a = 146), (b = 151));
-      document.getElementById("div1").innerHTML = "";
+      cleandiv();
     }
     console.log(page);
     //fetch content and render here
