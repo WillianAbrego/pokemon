@@ -36,3 +36,14 @@ body {
 .div1 {
   display: flex;
 }
+.hidden {
+  display: none;
+}
+
+.descriptions {
+  display: inline;
+  margin: 10px;
+}
+.img-fluid {
+  margin-left: 25px;
+}

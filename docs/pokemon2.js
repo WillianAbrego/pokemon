@@ -20,14 +20,15 @@ function createPokemonCard(pokemon) {
   const poke_abilities = pokemon.abilities.map(
     (ability) => ability.ability.name
   );
-  console.log(poke_abilities);
+  //console.log(poke_abilities[0]);
   //console.log(pokemon.abilities);
   if (poke_types[1] == undefined) {
     document.getElementById(
       "div1"
     ).innerHTML += `<div class="d-flex align-content-end flex-wrap contenido">
     <div class="bg-white rounded shadow-sm py-5 px-4"><img src="${imagen}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-        <h5 class="mb-0" >${name}</h5><span class="small text-capitalize text-muted">${poke_types[0]}</span>
+    <div class="hidden">${poke_abilities[0]} / ${poke_abilities[1]}</div>
+    <h5 class="mb-0" >${name}</h5><span class="small text-capitalize text-muted">${poke_types[0]}</span>
         <button type="button" class="btn  btn-info btn-sm" data-toggle="modal" data-target="#myModal" id="botonmodal">
         Informacion
       </button>
@@ -60,9 +61,10 @@ function createPokemonCard(pokemon) {
   } else {
     document.getElementById(
       "div1"
-    ).innerHTML += `<div class="d-flex align-content-end flex-wrap contenido contcard">
+    ).innerHTML += `<div class="d-flex align-content-end flex-wrap contenido">
     <div class="bg-white rounded shadow-sm py-5 px-4 contcard" ><img src="${imagen}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-        <h5 class="mb-0 nombrepokemon" title="f">${name}</h5><span class="small text-capitalize text-muted">${poke_types[0]} /${poke_types[1]} </span>
+    <div class="hidden">${poke_abilities[0]}/${poke_abilities[1]}</div>
+    <h5 class="mb-0 nombrepokemon" title="f">${name}</h5><span class="small text-capitalize text-muted">${poke_types[0]} /${poke_types[1]} </span>
       <button type="button" title="tituli"class="btn  btn-info btn-sm" data-toggle="modal" data-target="#myModal" id="botonmodal">
         Información
       </button>
@@ -104,15 +106,20 @@ function createPokemonCard(pokemon) {
 
 $(document).on("click", "button.btn", function (e) {
   // e.preventDefault();
-  let codigo = $(this).closest(".bg-white")[0].childNodes[2].firstChild.data;
+  let codigo =
+    $(this).closest(".bg-white")[0].childNodes[4].childNodes[0].nodeValue;
+  let co = $(this).closest(".bg-white")[0];
   let img = $(this).closest(".bg-white")[0].firstChild.currentSrc;
-  let htmlimg = `<img src="${img}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">`;
-  console.log(codigo);
-  console.log(img);
+  let hidden =
+    $(this).closest(".bg-white")[0].childNodes[2].childNodes[0].nodeValue;
+  let htmlimg = `<img src="${img}" alt="" width="100" class="img-fluid rounded-circle mb-2 img-thumbnail shadow-sm"><img src="${img}" alt="" width="100" class="img-fluid rounded-circle mb-2 img-thumbnail shadow-sm">  <div class="descriptions"> <br>Ability:<br> <spam>${hidden}</spam> </div> `;
+  // console.log(codigo);
+  // console.log(img);
   // var title = $("h5").append[0];
   $(".modal-header").html(codigo);
   $(".modal-body").html(htmlimg);
   // console.log(title);
+  console.log(co);
 });
 //document.getElementsByClassName("bg-white")[0].childNodes[2].innerText
 const cleandiv = () => {
@@ -144,7 +151,7 @@ $("#pagination-demo").twbsPagination({
       fetchPokemon((a = 146), (b = 151));
       cleandiv();
     }
-    console.log(page);
+    //console.log(page);
     //fetch content and render here
     $("#page-content").text("Page " + page) + " content here";
   },
