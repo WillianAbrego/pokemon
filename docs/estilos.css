@@ -43,6 +43,7 @@ body {
 .descriptions {
   display: inline;
   margin: 10px;
+  margin-left: 25px;
 }
 .imginterna {
   margin-left: 25px;
