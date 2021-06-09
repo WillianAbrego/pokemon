@@ -122,7 +122,21 @@ $(document).on("click", "button.btn", function (e) {
     $(this).closest(".bg-white")[0].childNodes[2].childNodes[0].nodeValue;
   let htmlimg = `<img src="${img}" alt="" width="100" class="imginterna rounded-circle mb-2 img-thumbnail shadow-sm">
                 <img src="${imgback}" alt="" width="100" class="imginterna rounded-circle mb-2 img-thumbnail shadow-sm"> 
-                 <div class="descriptions"> <br>Ability:<br> <spam>${hidden}</spam><br>Weigth:<br> <spam>${peso}</spam></div> `;
+                 <div class="descriptions"><br><br><br></div>
+                 <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Ability</th>
+      <th scope="col">Weigth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>${hidden}</td>
+      <td>${peso}</td>
+    </tr>
+  </tbody>
+</table>`;
   // console.log(codigo);
   // console.log(img);
   // var title = $("h5").append[0];
