@@ -180,3 +180,7 @@ $("#pagination-demo").twbsPagination({
     $("#page-content").text("Page " + page) + " content here";
   },
 });
+
+$(document).on("click", ".aleatorio", function (e) {
+  cleandiv();
+});
