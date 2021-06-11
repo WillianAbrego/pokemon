@@ -8,6 +8,7 @@ let getPokemon = async (id) => {
   let url = `https://pokeapi.co/api/v2/pokemon/${id}`;
   let res = await fetch(url);
   let pokemon = await res.json();
+
   createPokemonCard(pokemon);
 };
 fetchPokemon();
@@ -182,5 +183,12 @@ $("#pagination-demo").twbsPagination({
 });
 
 $(document).on("click", ".aleatorio", function (e) {
+  let minimo = 1,
+    maximo = 151,
+    res;
+  res = Math.floor(Math.random() * (maximo + 1 - minimo) + minimo);
+  cleandiv();
+  // console.log(res);
+  getPokemon(res);
   cleandiv();
 });
