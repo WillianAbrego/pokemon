@@ -150,6 +150,9 @@ $(document).on("click", "button.btn", function (e) {
 const cleandiv = () => {
   document.getElementById("div1").innerHTML = "";
 };
+const cleandivpaginacion = () => {
+  document.getElementById("wrapper").innerHTML = "";
+};
 $("#pagination-demo").twbsPagination({
   totalPages: 6,
   visiblePages: 6,
@@ -187,8 +190,11 @@ $(document).on("click", ".aleatorio", function (e) {
     maximo = 151,
     res;
   res = Math.floor(Math.random() * (maximo + 1 - minimo) + minimo);
+
   cleandiv();
   // console.log(res);
   getPokemon(res);
+
+  cleandivpaginacion();
   cleandiv();
 });
