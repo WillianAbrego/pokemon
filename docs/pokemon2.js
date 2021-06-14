@@ -150,9 +150,7 @@ $(document).on("click", "button.btn", function (e) {
 const cleandiv = () => {
   document.getElementById("div1").innerHTML = "";
 };
-const cleandivpaginacion = () => {
-  document.getElementById("wrapper").innerHTML = "";
-};
+
 $("#pagination-demo").twbsPagination({
   totalPages: 6,
   visiblePages: 6,
@@ -194,7 +192,7 @@ $(document).on("click", ".aleatorio", function (e) {
   cleandiv();
   // console.log(res);
   getPokemon(res);
-
-  cleandivpaginacion();
+  document.getElementById("pagination-demo").classList.add("hidden");
+  document.getElementById("page-content").classList.add("hidden");
   cleandiv();
 });
