@@ -5,7 +5,7 @@ body {
   min-height: 100vh;
 }
 
-.social-link {
+/* .social-link {
   width: 30px;
   height: 30px;
   border: 1px solid #ddd;
@@ -16,7 +16,7 @@ body {
   border-radius: 50%;
   transition: all 0.3s;
   font-size: 0.9rem;
-}
+} */
 
 .social-link:hover,
 .social-link:focus {
@@ -32,6 +32,7 @@ body {
 
 .contenido {
   margin-left: 10px;
+  margin-right: auto;
 }
 .div1 {
   display: flex;
