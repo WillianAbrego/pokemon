@@ -1,7 +1,14 @@
 body {
   background: #e8cbc0;
   background: -webkit-linear-gradient(to right, #e8cbc0, #636fa4);
-  background: linear-gradient(to right, #f7dbd3, #6472b3);
+  background-image: radial-gradient(
+    circle,
+    #ffffff,
+    #edeff8,
+    #d6e1f2,
+    #bbd4ea,
+    #9bc8e0
+  );
   min-height: 100vh;
 }
 
@@ -28,6 +35,14 @@ body {
   margin-top: 10px;
   width: 150px;
   height: 250px;
+  background-image: radial-gradient(
+    circle,
+    #ffffff,
+    #ebe6f9,
+    #d8cdf2,
+    #c7b4ea,
+    #b89be0
+  );
 }
 
 .contenido {
@@ -51,4 +66,14 @@ body {
 }
 .wrapper {
   margin-top: 75px;
+}
+.modal-content {
+  background-image: radial-gradient(
+    circle,
+    #ffffff,
+    #ebe6f9,
+    #d8cdf2,
+    #c7b4ea,
+    #b89be0
+  );
 }
