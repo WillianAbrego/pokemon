@@ -1,3 +1,27 @@
+let pokeApi = "https://pokeapi.co/api/v2/pokemon";
+
+async function loadPokemon(url) {
+  try {
+    let res = await fetch(url),
+      json = await res.json();
+    // console.log(json);
+    for (let i = 0; i < json.results.length; i++) {
+      //console.log(json.results[i]);
+      try {
+        let res = await fetch(json.results[i].url),
+          pokemon = await res.json();
+        console.log(pokemon);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadPokemon(pokeApi));
+
 let fetchPokemon = async (incial, final) => {
   for (let i = incial; i < final; ++i) {
     await getPokemon(i);
