@@ -1,20 +1,40 @@
 let pokeApi = "https://pokeapi.co/api/v2/pokemon";
+const d = document,
+  $main = d.querySelector("main"),
+  $links = d.querySelector(".links");
 
 async function loadPokemon(url) {
   try {
     let res = await fetch(url),
-      json = await res.json();
+      json = await res.json(),
+      $template = "";
+
     // console.log(json);
     for (let i = 0; i < json.results.length; i++) {
       //console.log(json.results[i]);
       try {
         let res = await fetch(json.results[i].url),
-          pokemon = await res.json();
-        console.log(pokemon);
+          pokemon = await res.json(),
+          capitalize =
+            pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+        $template += `
+          <figure>
+             <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" class="rounded-circle img-thumbnail ">  
+              <figcaption>${capitalize}</figcaption>  
+           </figure>`;
+
+        $main.innerHTML = $template;
       } catch (err) {
         console.log(err);
       }
     }
+    window.addEventListener("scroll", (e) => {
+      // console.log(document.documentElement.clientHeight);
+      // console.log(document.documentElement.scrollHeight);
+      // console.log(document.documentElement.scrollTop);
+      // console.log(window.location.hash);
+    });
+    console.log(window.screen.height);
   } catch (err) {
     console.log(err);
   }
