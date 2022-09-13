@@ -13,73 +13,6 @@ body {
 
 }
 
-/* .social-link {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  border-radius: 50%;
-  transition: all 0.3s;
-  font-size: 0.9rem;
-} */
-
-.social-link:hover,
-.social-link:focus {
-  background: #ddd;
-  text-decoration: none;
-  color: #555;
-}
-.bg-white {
-  margin-top: 10px;
-  width: 150px;
-  height: 250px;
-  background-image: radial-gradient(
-    circle,
-    #ffffff,
-    #ebe6f9,
-    #d8cdf2,
-    #c7b4ea,
-    #b89be0
-  );
-}
-
-.contenido {
-  margin-left: auto;
-  margin-right: auto;
-}
-.div1 {
-  display: flex;
-}
-.hidden {
-  display: none;
-}
-
-.descriptions {
-  display: inline;
-  margin: 10px;
-  margin-left: 25px;
-}
-.imginterna {
-  margin-left: 25px;
-}
-.wrapper {
-  margin-top: 75px;
-}
-.modal-content {
-  background-image: radial-gradient(
-    circle,
-    #ffffff,
-    #ebe6f9,
-    #d8cdf2,
-    #c7b4ea,
-    #b89be0
-  );
-}
-
-
 /* version 2 */
 
 html {
@@ -90,10 +23,11 @@ html {
 }
 .grid-fluid {
   position: relative;
-  margin-top: 2.5rem;
+  margin-top: 4rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   text-align: center;
+  z-index: -999;
 }
 
 figcaption{
